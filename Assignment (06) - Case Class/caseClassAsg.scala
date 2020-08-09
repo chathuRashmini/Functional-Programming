@@ -11,7 +11,7 @@ object caseClassAsg extends App {
 	var p4: Point = p1.move(10,20)
 	println("When p1 is moved 10 points along x axis\n\tand 20 points along y aixs = " + p4)
 
-	/*println("Distance between p1 and p2 = " + p1.distance(p2))*/
+	println("\nDistance between p1 and p2 = " + p1.distance(p2))
 
 	println("When x and y cordinates of p1 is switched = " + p1.invert())
 }
@@ -24,11 +24,9 @@ case class Point(a: Int, b: Int) {
 
 	def move(dx:Int, dy:Int): Point = Point(this.x+dx, this.y+dy)
 
-	/*def distance(p:Point): Int = {
-		def dx: Int = this.x - dx;
-		def dy: Int = this.y - dy;
-		return dx*dx + dy*dy;
-	}*/
+	def distance(p: Point): Double = {
+	      (Math.sqrt(Math.pow(this.x - p.x, 2) + Math.pow(this.y - p.y, 2)))
+	}
 
 	def invert(): Point = Point (this.y , this.x)
 }
